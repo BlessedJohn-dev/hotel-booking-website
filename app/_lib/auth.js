@@ -38,7 +38,6 @@ const authConfig = {
 
   pages: {
     signIn: "/login",
-    
   },
 };
 
@@ -48,15 +47,3 @@ export const {
   signOut,
   handlers: { GET, POST },
 } = NextAuth(authConfig);
-
-// A trick to convert any value to a boolean: "!!"
-
-// Example below:
-// return !!auth?.user;
-
-// OR simply,
-/* if (auth?.user) {
-  return true;
-} else {
-  return false;
- } */

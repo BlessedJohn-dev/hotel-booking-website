@@ -4,6 +4,7 @@ import { useReservation } from "@/app/_components/ReservationContext";
 import { differenceInDays } from "date-fns";
 import { createBookingAction } from "../_lib/actions";
 import SubmitButton from "./SubmitButton";
+import Image from "next/image";
 
 function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
@@ -23,11 +24,7 @@ function ReservationForm({ cabin, user }) {
     cabinId: id,
   };
 
-  // This "createBookingWithData" will be used as the form action next...
   const createBookingWithData = createBookingAction.bind(null, bookingData);
-
-  // createBookingAction(bookingData) - bookingData now becomes the first argument to the function that we are binding..
-  // In the Action file, the "formData" is the first parameter of the createBookingAction function. However, right now, the formData would be set as the bookingData.
 
   return (
     <div className="scale-[1.01]">
@@ -35,10 +32,11 @@ function ReservationForm({ cabin, user }) {
         <p>Logged in as</p>
 
         <div className="flex gap-4 items-center">
-          <img
-            // Important to display google profile images
+          <Image
             referrerPolicy="no-referrer"
             className="h-8 rounded-full"
+            width={200}
+            height={200}
             src={user.image}
             alt={user.name}
           />
@@ -47,7 +45,6 @@ function ReservationForm({ cabin, user }) {
       </div>
 
       <form
-        // action={createBookingWithData}
         action={async (formData) => {
           await createBookingWithData(formData);
           resetRange();

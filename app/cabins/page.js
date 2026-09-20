@@ -4,8 +4,6 @@ import ReservationReminder from "@/app/_components/ReservationReminder";
 import Spinner from "@/app/_components/Spinner";
 import { Suspense } from "react";
 
-// export const revalidate = 3600;
-
 export const metadata = {
   title: "Cabins",
 };

@@ -1,11 +1,7 @@
 import Image from "next/image";
 import image1 from "@/public/about-1.jpg";
-// import image2 from "@/public/about-2.jpg";
 import Link from "next/link";
 import { getCabins } from "../_lib/data-service";
-
-// export const revalidate = 86400; // Once per day
-// export const revalidate = 3600; // Once per hour
 
 export const metadata = {
   title: "About",

@@ -28,7 +28,7 @@ export async function updateGuestAction(formData) {
   revalidatePath("/account/profile");
 }
 
-// ====== Creating a New Reservation =============
+// Creating a New Reservation
 export async function createBookingAction(bookingData, formData) {
   const session = await auth();
   if (!session) throw new Error("You must first be logged in!!!");
@@ -50,11 +50,11 @@ export async function createBookingAction(bookingData, formData) {
   if (error) throw new Error("Booking could not be created");
 
   revalidatePath(`/cabins/${bookingData.cabinId}`);
-  
+
   redirect("/cabins/thankyou");
 }
 
-// =========== DELETE BOOKING ==================
+//  DELETE BOOKING
 export async function deleteBookingAction(bookingId) {
   const session = await auth();
   if (!session) throw new Error("You must first be logged in!!!");
@@ -75,7 +75,7 @@ export async function deleteBookingAction(bookingId) {
   revalidatePath("/account/reservations");
 }
 
-// ================= UPDATE BOOKING ==============
+// UPDATE BOOKING
 export async function updateReservationAction(formData) {
   console.log(formData);
 

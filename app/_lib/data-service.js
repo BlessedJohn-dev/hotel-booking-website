@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { supabase } from "./supabase";
 import { eachDayOfInterval } from "date-fns";
 
-// GET
 export async function getCabin(id) {
   const { data, error } = await supabase
     .from("cabins")
@@ -71,7 +70,7 @@ export async function getBooking(id) {
   return data;
 }
 
-// We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
+// We also need a few data on the cabins as well.
 export async function getBookings(guestId) {
   const { data, error, count } = await supabase
     .from("bookings")
@@ -139,7 +138,7 @@ export async function getCountries() {
   }
 }
 
-// CREATE
+// Create guest
 export async function createGuest(newGuest) {
   const { data, error } = await supabase.from("guests").insert([newGuest]);
 
@@ -149,65 +148,3 @@ export async function createGuest(newGuest) {
 
   return data;
 }
-/*
-export async function createBooking(newBooking) {
-  const { data, error } = await supabase
-    .from("bookings")
-    .insert([newBooking])
-    // So that the newly created object gets returned!
-    .select()
-    .single();
-
-  if (error) {
-    throw new Error("Booking could not be created");
-  }
-
-  return data;
-}
-*/
-// UPDATE
-
-/*
-// The updatedFields is an object which should ONLY contain the updated data
-export async function updateGuest(id, updatedFields) {
-  const { data, error } = await supabase
-    .from("guests")
-    .update(updatedFields)
-    .eq("id", id)
-    .select()
-    .single();
-
-  if (error) {
-    throw new Error("Guest could not be updated");
-  }
-  return data;
-}
-
-export async function updateBooking(id, updatedFields) {
-  const { data, error } = await supabase
-    .from("bookings")
-    .update(updatedFields)
-    .eq("id", id)
-    .select()
-    .single();
-
-  if (error) {
-    throw new Error("Booking could not be updated");
-  }
-  return data;
-}
-
-// DELETE
-export async function deleteBooking(id) {
-  const { data, error } = await supabase.from("bookings").delete().eq("id", id);
-
-  if (error) {
-    throw new Error("Booking could not be deleted");
-  }
-  return data;
-}
-
-*/
-
-// For testing
-// await new Promise((res) => setTimeout(res, 3000));
