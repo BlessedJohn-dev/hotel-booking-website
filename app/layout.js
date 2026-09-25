@@ -14,7 +14,7 @@ export const metadata = {
     template: "%s - The Wild Oasis",
     default: "Welcome / The wild oasis",
   },
-  description: "The Wild Oasis application, built by CodePaszion LLC.",
+  description: "The Wild Oasis application, Blessed John",
 };
 
 export default function RootLayout({ children }) {

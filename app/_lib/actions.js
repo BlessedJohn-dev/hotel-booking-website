@@ -77,8 +77,6 @@ export async function deleteBookingAction(bookingId) {
 
 // UPDATE BOOKING
 export async function updateReservationAction(formData) {
-  console.log(formData);
-
   const bookingId = Number(formData.get("bookingId"));
 
   // Authentication

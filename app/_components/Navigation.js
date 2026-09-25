@@ -4,11 +4,10 @@ import Image from "next/image";
 
 export default async function Navigation() {
   const session = await auth();
-  console.log(session);
 
   return (
-    <nav className="z-10 text-xl">
-      <ul className="flex gap-16 items-center">
+    <nav className="z-10 text-lg sm:text-xl">
+      <ul className="flex gap-10 sm:gap-16 items-center sm:mr-2">
         <li>
           <Link
             href="/cabins"
