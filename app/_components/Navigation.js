@@ -1,29 +1,13 @@
-import Link from "next/link";
 import { auth } from "@/app/_lib/auth";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Navigation() {
   const session = await auth();
 
   return (
-    <nav className="z-10 text-lg sm:text-xl">
-      <ul className="flex gap-10 sm:gap-16 items-center sm:mr-2">
-        <li>
-          <Link
-            href="/cabins"
-            className="hover:text-accent-400 transition-colors"
-          >
-            Cabins
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/about"
-            className="hover:text-accent-400 transition-colors"
-          >
-            About
-          </Link>
-        </li>
+    <nav className="hidden items-center gap-8 sm:flex">
+      <ul className="pl-10 flex gap-10 items-center">
         <li>
           {session?.user?.image ? (
             <Link

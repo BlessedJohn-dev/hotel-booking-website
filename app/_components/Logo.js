@@ -12,22 +12,11 @@ function Logo() {
         quality={100}
         alt="The Wild Oasis logo"
       />
-      <span className="text-lg sm:text-xl font-semibold text-primary-100 pr-10">
+      <span className="text-base sm:text-lg font-semibold text-primary-100 whitespace-pre-wrap pr-20">
         The Wild Oasis
       </span>
     </Link>
   );
 }
-/*
-<Link href="/" className="flex items-center gap-3 z-10">
-      <Image
-        src={logo}
-        height="60"
-        width="60"
-        quality={100}
-        alt="The Wild Oasis logo"
-      />
-      <span className="sm:text-lg lg:text-xl font-semibold text-primary-100">
-*/
 
 export default Logo;
